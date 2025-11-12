@@ -1,2 +1,2 @@
-# mapascalor.github.io
+# mapascalor
 mapas de calor regional norte
