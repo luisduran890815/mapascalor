@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_355c58c8c4b31a50093472f5173770d5 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+
+ <style>
+
+        .texto-centrado {
+                    background-color: #0078D7; /* Fondo azul */
+                    color: white;              /* Texto blanco */
+                    padding: 10px 15px;        /* Ajusta el tamaño del fondo */
+                    border-radius: 8px;        /* Bordes redondeados opcionales */
+                    font-size: 12px;           /* Tamaño del texto */
+                    text-align: center;
+
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    justify-content: center; /* Centra horizontalmente */
+                    align-items: center;     /* Centra verticalmente */
+
+                }
+
+
+    </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+
+   <title>Empleados_BUC</title> <!-- Cambia aquí el título -->
+
+</head>
+<body>
+    
+            <div class="texto-centrado">
+                    Mapa Calor Empleados SURA Bucaramanga
+                </div>
+
+
+            <div class="folium-map" id="map_355c58c8c4b31a50093472f5173770d5" ></div>
+
+            <div style="position: absolute; bottom: 60px; right: 10px; z-index: 1000;">
+                <button onclick="window.open('AseguradosBUC.html', '_blank')" class="btn btn-primary">
+                    Mapa Calor Asegurados
+                </button>
+            </div>
+
+            <div style="position: absolute; bottom: 10px; right: 10px; z-index: 1000;">
+                <button onclick="window.open('main.html', '_blank')" class="btn btn-primary">
+                    Pagina Principal
+                </button>
+            </div>
+
+
+</body>
+<script>
+    
+    
+            var map_355c58c8c4b31a50093472f5173770d5 = L.map(
+                "map_355c58c8c4b31a50093472f5173770d5",
+                {
+                    center: [7.10411, -73.11268],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_fc954e12633c2f033da5ffbc3df8127c = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_fc954e12633c2f033da5ffbc3df8127c.addTo(map_355c58c8c4b31a50093472f5173770d5);
+        
+    
+            var heat_map_583e62ef0d9ad92124c0d94ce2b2ca4f = L.heatLayer(
+                [[7.08394707, -73.17097246], [7.09549597, -73.13880312], [7.09853919, -73.124834], [7.11484736, -73.12170765], [7.11953159, -73.10716277], [7.11953159, -73.10716277], [7.077221, -73.10444464], [7.09905801, -73.12428611], [7.08112863, -73.08902287], [7.06133974, -73.10645123], [7.1025521, -73.13072911], [7.06113021, -73.1088828], [7.09882964, -73.1248876], [7.13069897, -73.12132971], [7.11748738, -73.11293252], [7.06159508, -73.17388402], [7.11416768, -73.11301557], [7.08054779, -73.1106647], [7.12274531, -73.10985924], [7.10407128, -73.12559312], [7.12233626, -73.12514123], [7.10584275, -73.11844353], [7.12281982, -73.11734706], [7.12614078, -73.11667682], [7.11646485, -73.11338502], [7.06544019, -73.17125503], [7.06370861, -73.08798139], [7.12769923, -73.10932586], [7.07226282, -73.10884625], [7.08187405, -73.08974649], [7.06109753, -73.11190452], [7.08247502, -73.12114243], [7.13141114, -73.11525533], [7.11627702, -73.11322193], [6.99102183, -73.05198384], [6.97732106, -73.05353628], [6.98415543, -73.0482726], [6.97718364, -73.05364456], [6.97754697, -73.05309864], [7.07518919, -73.16863896], [7.11595331, -73.11430664], [7.08541531, -73.11252379], [7.11534637, -73.10029257], [7.09588604, -73.13899693], [7.09604757, -73.09554352], [7.09856328, -73.12484925], [7.12247726, -73.12431764], [7.08543237, -73.12196605], [7.09650047, -73.10749997], [7.06606256, -73.10457003], [7.06134329, -73.10665572], [7.0553354, -73.09028849], [7.09867219, -73.11549245], [7.11687599, -73.10843393], [7.0553354, -73.09028849], [7.12643282, -73.11653771], [7.08090273, -73.09431577], [7.11580756, -73.11390216], [7.12105822, -73.11373168], [7.13193149, -73.11371035], [7.0789789, -73.10526762], [7.06126176, -73.1049967], [7.09815135, -73.1008596], [7.08111838, -73.094909], [7.08122551, -73.08964226], [7.06392562, -73.1659466], [7.06083142, -73.09617773], [7.08693458, -73.12490208], [6.97778173, -73.05338583], [7.14143945, -73.13270971], [6.97860357, -73.05208287], [6.97678072, -73.05161741], [6.97812415, -73.05361113], [7.11786183, -73.12851151], [7.08179911, -73.12246064], [7.11273234, -73.11588243], [7.13082457, -73.12285935], [7.11774096, -73.11428748], [7.08974428, -73.11300076], [7.1256761, -73.11146666], [7.12150637, -73.10837079], [7.0817457, -73.08951975], [7.09856328, -73.12484925], [7.1125637, -73.11604955], [7.11534637, -73.10029257], [7.0954524, -73.10018646], [7.06413759, -73.1659381], [7.09934416, -73.1263825], [7.09955881, -73.1236808], [7.11589922, -73.11798912], [7.08492697, -73.11190047], [7.11754572, -73.11056422], [7.07735063, -73.10599836], [7.12281982, -73.11734706], [7.06131088, -73.16661232], [7.1134213, -73.11622522], [7.12442738, -73.11570559], [7.07276088, -73.11323911], [7.06440981, -73.10577065], [7.08400488, -73.12158826], [7.0996209, -73.12181659], [6.97663239, -73.05182196], [6.97780052, -73.05340814], [6.97735511, -73.05382959], [7.00332385, -73.05370365], [6.97739249, -73.05387292], [7.06078692, -73.09425833], [7.11309609, -73.13532046], [7.08191221, -73.12247969], [7.07276088, -73.11323911], [7.06441495, -73.16614195], [7.12301136, -73.12774352], [7.09684623, -73.11055931], [7.09111451, -73.10352075], [7.08699222, -73.13777338], [7.12204688, -73.1106637], [7.10000619, -73.1044947], [7.06394628, -73.16584844], [7.06867512, -73.17881926], [7.11041999, -73.11445162], [7.09230601, -73.10701666], [7.12731724, -73.11626944], [7.08079717, -73.08913888], [7.10303156, -73.12540979], [7.06453264, -73.09383896], [7.0871007, -73.11922197], [7.11318495, -73.11746761], [7.12703468, -73.1113673], [7.12150637, -73.10837079], [6.98677069, -73.04920631], [7.14428938, -73.13282729], [7.1366433, -73.11057975], [6.97736579, -73.05384197], [7.11011601, -73.11480142], [7.06716027, -73.09868546], [7.08089215, -73.09526962], [7.06340497, -73.10357021], [7.07204075, -73.1082087], [7.12194112, -73.13637527], [7.08424362, -73.12994849], [7.10407128, -73.12559312], [7.09821159, -73.1247629], [7.12482466, -73.12178358], [7.11181774, -73.11543217], [7.08470402, -73.11522608], [7.11683499, -73.10613599], [7.11018168, -73.10572768], [7.07798255, -73.10350061], [7.07911829, -73.09563626], [7.0817457, -73.08951975], [7.10205308, -73.12327341], [7.06882826, -73.11382836], [7.11134064, -73.10897894], [7.0898081, -73.10555232], [7.0809104, -73.08950614], [7.13487027, -73.12311837], [7.07276088, -73.11323911], [7.0759587, -73.09819019], [7.07567663, -73.09677011], [7.10584275, -73.11844353], [7.08388101, -73.10761052], [7.12882975, -73.10684657], [7.08489864, -73.10597659], [7.08021709, -73.09607604], [7.08620362, -73.12357217], [7.14143945, -73.13270971], [6.99727587, -73.05415642], [6.97827053, -73.05438529], [6.97431555, -73.04910206], [7.13078584, -73.12286731], [7.08075305, -73.0947225], [7.05877324, -73.15691204], [7.06514211, -73.16736663], [7.10303156, -73.12540979], [7.0824543, -73.11755184], [7.07276088, -73.11323911], [7.13372329, -73.1314509], [7.11436838, -73.12241534], [7.11465123, -73.11344062], [7.07541763, -73.11193776], [7.0641411, -73.08437553], [7.10392858, -73.11711978], [7.11683499, -73.10613599], [7.07576781, -73.08565621], [7.10385666, -73.12567481], [7.12135633, -73.11851429], [7.12183197, -73.12017259], [7.06911185, -73.0953046], [7.08064763, -73.09466459], [7.13179608, -73.12637325], [7.12263799, -73.11608346], [7.08038121, -73.10824829], [7.08289121, -73.10241665], [6.99812439, -73.05592371], [7.14858681, -73.12514621], [6.99625786, -73.04814404], [7.08399862, -73.17168902], [7.06816273, -73.16530615], [7.12685518, -73.11741559], [7.09560243, -73.10077259], [7.07541937, -73.09688617], [7.05503148, -73.17131411], [7.07618141, -73.17613525], [7.06109753, -73.11190452], [7.08047816, -73.08937783], [7.0573893, -73.16968865], [7.06073433, -73.08634099], [7.09568382, -73.13401455], [7.10838427, -73.12738967], [7.08215807, -73.12251905], [7.11940814, -73.12052002], [7.11347853, -73.11935806], [7.08093232, -73.08957923], [7.07078488, -73.16926869], [7.0824543, -73.11755184], [7.12281982, -73.11734706], [7.13048466, -73.11576929], [7.12696217, -73.10848535], [7.09676112, -73.10767853], [7.11653154, -73.10697821], [7.06825455, -73.17917922], [7.09626058, -73.12540646], [7.09803318, -73.10085493], [7.07800621, -73.11096111], [7.12811462, -73.10838472], [7.0898081, -73.10555232], [7.11203556, -73.1026777], [7.15353249, -73.14272142], [7.12247477, -73.12091109], [7.10517564, -73.11002395], [7.07966699, -73.10151655], [7.10385666, -73.12567481], [7.13289145, -73.12507658], [7.11126727, -73.11820152], [7.13059037, -73.1152166], [7.08716876, -73.11189965], [7.09654342, -73.10249693], [7.08010848, -73.09491951], [7.14332968, -73.12849832], [6.99766161, -73.05779902], [7.14220091, -73.13200435], [7.09180642, -73.13825202], [7.06264792, -73.09800664], [7.09873308, -73.12444899], [7.08179742, -73.12308974], [7.10030773, -73.12213145], [7.13315286, -73.12189725], [7.10997208, -73.11688384], [7.13048466, -73.11576929], [7.10045926, -73.12651078], [7.10170407, -73.12304653], [7.09110559, -73.11094485], [7.09946771, -73.11003845], [7.11843941, -73.10790872], [7.11541966, -73.10632437], [7.1017441, -73.10194102], [7.08180444, -73.08895576], [7.06414843, -73.16588889], [7.13366597, -73.11680569], [7.12824667, -73.110429], [7.08108891, -73.08901997], [7.08647056, -73.11272405], [7.12155116, -73.10763633], [7.09796681, -73.12533843], [7.06133974, -73.10645123], [7.07904846, -73.09955898], [7.14995828, -73.14634346], [7.11595331, -73.11430664], [7.10641392, -73.11258283], [6.99457354, -73.05378115], [6.977788, -73.05339327]],
+                {
+  "minOpacity": 0.5,
+  "maxZoom": 1,
+  "radius": 20,
+  "blur": 30,
+  "gradient": {
+  0.2: "white",
+  0.4: "orange",
+  0.6: "red",
+  1: "darkred",
+},
+}
+            );
+        
+    
+            heat_map_583e62ef0d9ad92124c0d94ce2b2ca4f.addTo(map_355c58c8c4b31a50093472f5173770d5);
+        
+    
+            var marker_a5f0c18d83cab4a455e526bfed11f8b5 = L.marker(
+                [6.987141, -73.052437],
+                {
+}
+            ).addTo(map_355c58c8c4b31a50093472f5173770d5);
+        
+    
+        var popup_7800d1d306205efccf50414d3b9547cb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b4406cc63a38f9aa7acc1094b7f94254 = $(`<div id="html_b4406cc63a38f9aa7acc1094b7f94254" style="width: 100.0%; height: 100.0%;">Coomultrasan Piedecuesta</div>`)[0];
+                popup_7800d1d306205efccf50414d3b9547cb.setContent(html_b4406cc63a38f9aa7acc1094b7f94254);
+            
+        
+
+        marker_a5f0c18d83cab4a455e526bfed11f8b5.bindPopup(popup_7800d1d306205efccf50414d3b9547cb)
+        ;
+
+        
+    
+    
+            var marker_9df9949f93f54bc6785f9c4908020ce8 = L.marker(
+                [7.111801, -73.108952],
+                {
+}
+            ).addTo(map_355c58c8c4b31a50093472f5173770d5);
+        
+    
+        var popup_1a8cbaec3cfb9e78a079d1d8c0fb65ac = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_041dbf7694fccac761f38204d9bec851 = $(`<div id="html_041dbf7694fccac761f38204d9bec851" style="width: 100.0%; height: 100.0%;">Edificio Andes Center</div>`)[0];
+                popup_1a8cbaec3cfb9e78a079d1d8c0fb65ac.setContent(html_041dbf7694fccac761f38204d9bec851);
+            
+        
+
+        marker_9df9949f93f54bc6785f9c4908020ce8.bindPopup(popup_1a8cbaec3cfb9e78a079d1d8c0fb65ac)
+        ;
+
+        
+    
+    
+            var marker_f5eb0beabbae543cc66ecdfdeab77d36 = L.marker(
+                [7.112648, -73.113626],
+                {
+}
+            ).addTo(map_355c58c8c4b31a50093472f5173770d5);
+        
+    
+        var popup_96c9621f2c34b03093e9f70edc55e640 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cfd74a620fa982516f2d5e51b6e823af = $(`<div id="html_cfd74a620fa982516f2d5e51b6e823af" style="width: 100.0%; height: 100.0%;">Edificio Sotomayor Calle 52</div>`)[0];
+                popup_96c9621f2c34b03093e9f70edc55e640.setContent(html_cfd74a620fa982516f2d5e51b6e823af);
+            
+        
+
+        marker_f5eb0beabbae543cc66ecdfdeab77d36.bindPopup(popup_96c9621f2c34b03093e9f70edc55e640)
+        ;
+
+        
+    
+    
+            var marker_d62c7398499c8853de30f0b27f32ff3a = L.marker(
+                [7.11792, -73.112368],
+                {
+}
+            ).addTo(map_355c58c8c4b31a50093472f5173770d5);
+        
+    
+        var popup_60ba82b1ff3d95c5432a6b8a0d503144 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_acd385f7a36312e7101f7899349349cf = $(`<div id="html_acd385f7a36312e7101f7899349349cf" style="width: 100.0%; height: 100.0%;">Centro Empresarial Seguros Atlas</div>`)[0];
+                popup_60ba82b1ff3d95c5432a6b8a0d503144.setContent(html_acd385f7a36312e7101f7899349349cf);
+            
+        
+
+        marker_d62c7398499c8853de30f0b27f32ff3a.bindPopup(popup_60ba82b1ff3d95c5432a6b8a0d503144)
+        ;
+
+        
+    
+    
+            var marker_86af11199fb436e80142c9da661e6fec = L.marker(
+                [7.121102, -73.11663],
+                {
+}
+            ).addTo(map_355c58c8c4b31a50093472f5173770d5);
+        
+    
+        var popup_bee8f7afa9c33396a241363655f599fe = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_33a5e0a76fc21df2b8714f5d4bc925a2 = $(`<div id="html_33a5e0a76fc21df2b8714f5d4bc925a2" style="width: 100.0%; height: 100.0%;">Centro Empresarial Suramericana</div>`)[0];
+                popup_bee8f7afa9c33396a241363655f599fe.setContent(html_33a5e0a76fc21df2b8714f5d4bc925a2);
+            
+        
+
+        marker_86af11199fb436e80142c9da661e6fec.bindPopup(popup_bee8f7afa9c33396a241363655f599fe)
+        ;
+
+        
+    
+    
+            var marker_ade99a711f5aa4776f5321145717a008 = L.marker(
+                [7.12349, -73.114524],
+                {
+}
+            ).addTo(map_355c58c8c4b31a50093472f5173770d5);
+        
+    
+        var popup_03c3d0bfd0fc5a3a0e3e352c4381b79f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_55d87f9a3a845028e3e45680afbb477d = $(`<div id="html_55d87f9a3a845028e3e45680afbb477d" style="width: 100.0%; height: 100.0%;">Oficina Chicamocha</div>`)[0];
+                popup_03c3d0bfd0fc5a3a0e3e352c4381b79f.setContent(html_55d87f9a3a845028e3e45680afbb477d);
+            
+        
+
+        marker_ade99a711f5aa4776f5321145717a008.bindPopup(popup_03c3d0bfd0fc5a3a0e3e352c4381b79f)
+        ;
+
+        
+    
+    
+            var marker_8b314ef8257e51bfd0475098f4b3f3ac = L.marker(
+                [7.118307, -73.113579],
+                {
+}
+            ).addTo(map_355c58c8c4b31a50093472f5173770d5);
+        
+    
+        var popup_f6b4fd23fc7c26c44c94cc53b601499f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d99a655836ac20b83a291cb12546f4aa = $(`<div id="html_d99a655836ac20b83a291cb12546f4aa" style="width: 100.0%; height: 100.0%;">Plaza Prestigio</div>`)[0];
+                popup_f6b4fd23fc7c26c44c94cc53b601499f.setContent(html_d99a655836ac20b83a291cb12546f4aa);
+            
+        
+
+        marker_8b314ef8257e51bfd0475098f4b3f3ac.bindPopup(popup_f6b4fd23fc7c26c44c94cc53b601499f)
+        ;
+
+        
+    
+    
+            var marker_2aba69b44f1ac9bf0c1f1b8e93ddf354 = L.marker(
+                [7.123888, -73.114456],
+                {
+}
+            ).addTo(map_355c58c8c4b31a50093472f5173770d5);
+        
+    
+        var popup_55af2db2feb2d603789fccee7bf74843 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_31b0510b13ad7854bf65f7d69a6e0b2b = $(`<div id="html_31b0510b13ad7854bf65f7d69a6e0b2b" style="width: 100.0%; height: 100.0%;">Sura Chicamocha Cra 30</div>`)[0];
+                popup_55af2db2feb2d603789fccee7bf74843.setContent(html_31b0510b13ad7854bf65f7d69a6e0b2b);
+            
+        
+
+        marker_2aba69b44f1ac9bf0c1f1b8e93ddf354.bindPopup(popup_55af2db2feb2d603789fccee7bf74843)
+        ;
+
+        
+    
+    
+            var marker_d51460fd864715d257050832cfd1c680 = L.marker(
+                [7.123757, -73.117607],
+                {
+}
+            ).addTo(map_355c58c8c4b31a50093472f5173770d5);
+        
+    
+        var popup_6da938abb067e9a9b3f81c7dddb0445e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1d433685a3eb5ab0d506f0a8bbed2b3b = $(`<div id="html_1d433685a3eb5ab0d506f0a8bbed2b3b" style="width: 100.0%; height: 100.0%;">Coomultrasan Cra 27</div>`)[0];
+                popup_6da938abb067e9a9b3f81c7dddb0445e.setContent(html_1d433685a3eb5ab0d506f0a8bbed2b3b);
+            
+        
+
+        marker_d51460fd864715d257050832cfd1c680.bindPopup(popup_6da938abb067e9a9b3f81c7dddb0445e)
+        ;
+
+        
+    
+    
+            var marker_6a14642efbe7c4ce55a89653ab9502f8 = L.marker(
+                [7.113126, -73.112335],
+                {
+}
+            ).addTo(map_355c58c8c4b31a50093472f5173770d5);
+        
+    
+        var popup_1ba8b52aacc35364498845c5abba0621 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d4238add13c8587ff2f8a938b4ca00dc = $(`<div id="html_d4238add13c8587ff2f8a938b4ca00dc" style="width: 100.0%; height: 100.0%;">Torre Mardel</div>`)[0];
+                popup_1ba8b52aacc35364498845c5abba0621.setContent(html_d4238add13c8587ff2f8a938b4ca00dc);
+            
+        
+
+        marker_6a14642efbe7c4ce55a89653ab9502f8.bindPopup(popup_1ba8b52aacc35364498845c5abba0621)
+        ;
+
+        
+    
+    
+            var marker_bb498903d141f363ddfbcee37d5d2bbf = L.marker(
+                [7.116179, -73.109161],
+                {
+}
+            ).addTo(map_355c58c8c4b31a50093472f5173770d5);
+        
+    
+        var popup_ac5eba2daf74dd8eb279ea3faf055852 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7315a2a227ddd09c72732c923d0dc38f = $(`<div id="html_7315a2a227ddd09c72732c923d0dc38f" style="width: 100.0%; height: 100.0%;">Oficina Cabecera del Llano Cra 35A</div>`)[0];
+                popup_ac5eba2daf74dd8eb279ea3faf055852.setContent(html_7315a2a227ddd09c72732c923d0dc38f);
+            
+        
+
+        marker_bb498903d141f363ddfbcee37d5d2bbf.bindPopup(popup_ac5eba2daf74dd8eb279ea3faf055852)
+        ;
+
+        
+    
+    
+            var marker_5937a850d1288070c149040d81cfff1f = L.marker(
+                [7.069554, -73.106606],
+                {
+}
+            ).addTo(map_355c58c8c4b31a50093472f5173770d5);
+        
+    
+        var popup_fd09d9db84de88b1a59f51fd98c17bc8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0667c542b00c5b57a4ec41dad48e67b8 = $(`<div id="html_0667c542b00c5b57a4ec41dad48e67b8" style="width: 100.0%; height: 100.0%;">Coomultrasan Cañaveral</div>`)[0];
+                popup_fd09d9db84de88b1a59f51fd98c17bc8.setContent(html_0667c542b00c5b57a4ec41dad48e67b8);
+            
+        
+
+        marker_5937a850d1288070c149040d81cfff1f.bindPopup(popup_fd09d9db84de88b1a59f51fd98c17bc8)
+        ;
+
+        
+    
+</script>
+</html>

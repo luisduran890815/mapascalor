@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_90b566dac7a7a1528635cacb4583abf7 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+ <style>
+
+        .texto-centrado {
+                    background-color: #0078D7; /* Fondo azul */
+                    color: white;              /* Texto blanco */
+                    padding: 10px 15px;        /* Ajusta el tamaño del fondo */
+                    border-radius: 8px;        /* Bordes redondeados opcionales */
+                    font-size: 12px;           /* Tamaño del texto */
+                    text-align: center;
+
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    justify-content: center; /* Centra horizontalmente */
+                    align-items: center;     /* Centra verticalmente */
+
+                }
+
+
+    </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+
+    <title>Empleados_CTGA</title> <!-- Cambia aquí el título -->
+
+</head>
+<body>
+
+            <div class="texto-centrado">
+                    Mapa Calor Empleados SURA Cartagena
+                </div>
+    
+            <div class="folium-map" id="map_90b566dac7a7a1528635cacb4583abf7" ></div>
+
+            <div style="position: absolute; bottom: 60px; right: 10px; z-index: 1000;">
+                <button onclick="window.open('AseguradosCTGA.html', '_blank')" class="btn btn-primary">
+                    Mapa Calor Asegurados
+                </button>
+            </div>
+
+            <div style="position: absolute; bottom: 10px; right: 10px; z-index: 1000;">
+                <button onclick="window.open('main.html', '_blank')" class="btn btn-primary">
+                    Pagina Principal
+                </button>
+            </div>
+
+
+</body>
+<script>
+    
+    
+            var map_90b566dac7a7a1528635cacb4583abf7 = L.map(
+                "map_90b566dac7a7a1528635cacb4583abf7",
+                {
+                    center: [10.40437, -75.50143],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f5471aa52bc4bf2b9becb30d35de6161 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_f5471aa52bc4bf2b9becb30d35de6161.addTo(map_90b566dac7a7a1528635cacb4583abf7);
+        
+    
+            var heat_map_d0196f01b5a30ba086747eec189cd4f3 = L.heatLayer(
+                [[10.40598792, -75.48958182], [10.39456784, -75.47752458], [10.43390841, -75.52679807], [10.43491641, -75.52423758], [10.37835136, -75.46547826], [10.40724149, -75.48576301], [10.37894137, -75.46551944], [10.41216336, -75.53426761], [10.39831036, -75.48238872], [10.37897981, -75.46380866], [10.44083248, -75.52075565], [10.39102009, -75.49067263], [10.37712949, -75.46592829], [10.39309789, -75.49379931], [10.39921687, -75.48018072], [10.37881121, -75.46621446], [10.41861151, -75.53376875], [10.407333, -75.51155781], [10.39199231, -75.48195854], [10.38840879, -75.4722276], [10.41494911, -75.45492106], [10.43986603, -75.52003512], [10.40861175, -75.50464031], [10.39218138, -75.49626286], [10.40904636, -75.49533878], [10.39927225, -75.48023379], [10.43528217, -75.5351703], [10.37724922, -75.46576445], [10.39302602, -75.50090275], [10.38799649, -75.47183543], [10.3792671, -75.4657937], [10.39639169, -75.5631175], [10.37722669, -75.46744761], [10.3928959, -75.4901576], [10.37752896, -75.4653807], [10.38304663, -75.46272992], [10.39332535, -75.51095827], [10.38079477, -75.49210824], [10.37782996, -75.46755891], [10.39641782, -75.48841006], [10.37812702, -75.46756318], [10.32638401, -75.40760919], [10.40751441, -75.45311342], [10.37846203, -75.49281327], [10.39094083, -75.47029778], [10.37871116, -75.46375629], [10.40075774, -75.48995018], [10.37789398, -75.46760746], [10.37811602, -75.46579204], [10.40425513, -75.46481416], [10.41465126, -75.53827449], [10.37707818, -75.46599851], [10.39621762, -75.49367083], [10.37804816, -75.46600021], [10.37812507, -75.46577997], [10.37862966, -75.4640703], [10.39616364, -75.48841984], [10.38419722, -75.45865671], [10.3765253, -75.4918308], [10.37917656, -75.46572229], [10.42328336, -75.53330647], [10.37862926, -75.46454925], [10.3756557, -75.473577], [10.38299449, -75.47964575], [10.40624382, -75.51055274], [10.39228365, -75.50733833], [10.37972397, -75.47090103], [10.41588239, -75.53632787], [10.38465376, -75.49547429], [10.39080897, -75.47384605], [10.39279152, -75.51778978], [10.39160231, -75.48000749], [10.39152745, -75.49088201], [10.33626954, -75.40856256], [10.40736971, -75.45189317], [10.39394814, -75.50709326], [10.36883618, -75.47920483], [10.41123705, -75.51569638], [10.37848399, -75.48300572], [10.37833184, -75.46427344], [10.37154034, -75.47968716], [10.39884668, -75.50422957], [10.40223001, -75.48348094], [10.39836335, -75.48243641], [10.38142938, -75.47605037], [10.37891204, -75.46555854], [10.41163668, -75.50666132], [10.40207909, -75.47986596], [10.37846111, -75.46410221], [10.40060294, -75.51987387], [10.38477925, -75.4959339], [10.45699878, -75.50638628], [10.40014222, -75.48111064], [10.3998908, -75.48093841], [10.37768456, -75.46847508], [10.37839281, -75.46797503], [10.39227906, -75.49446608], [10.38027046, -75.49284251], [10.39826485, -75.48673952], [10.43380569, -75.52743624], [10.39160231, -75.48000749], [10.39012785, -75.49174659], [10.38960759, -75.48092863], [10.37985855, -75.46481303], [10.37594079, -75.49293202], [10.39096929, -75.4835346], [10.38170247, -75.48126237], [10.3883817, -75.47596983], [10.3782924, -75.46824479], [10.39718699, -75.56343771], [10.39605116, -75.48166913], [10.40434118, -75.46540827], [10.41545609, -75.53637209], [10.4002116, -75.51234563], [10.39953537, -75.49091398], [10.37869924, -75.46374768], [10.37812918, -75.46558236], [10.37941952, -75.5008777], [10.3843119, -75.49195629], [10.37804759, -75.46749838], [10.37954113, -75.50116203], [10.37864771, -75.46452492], [10.37774202, -75.46864636], [10.39950386, -75.50127738], [10.40677535, -75.4564882], [10.38466825, -75.48697397], [10.37888522, -75.46611448], [10.37777414, -75.46504358], [10.37725492, -75.46575665], [10.37962989, -75.48079362], [10.37812918, -75.46558236], [10.41882817, -75.53372059], [10.4334614, -75.5309024], [10.37789275, -75.46623452], [10.42067754, -75.55097767], [10.38591126, -75.47895898], [10.38578188, -75.47261646], [10.39067521, -75.49347554], [10.40947541, -75.55071632], [10.39638162, -75.4829213], [10.39094083, -75.47029778], [10.40533667, -75.45968592]],
+                {
+  "minOpacity": 0.5,
+  "maxZoom": 1,
+  "radius": 20,
+  "blur": 30,
+  "gradient": {
+  0.2: "white",
+  0.4: "orange",
+  0.6: "red",
+  1: "darkred",
+},
+}
+            );
+        
+    
+            heat_map_d0196f01b5a30ba086747eec189cd4f3.addTo(map_90b566dac7a7a1528635cacb4583abf7);
+        
+    
+            var marker_06b859eaa3f80669e15412f7130df7ed = L.marker(
+                [10.391373, -75.487046],
+                {
+}
+            ).addTo(map_90b566dac7a7a1528635cacb4583abf7);
+        
+    
+        var popup_0c54b58234717fe3baa4d067ab531f0e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2f45896cfc995d469920d4e48418ab3e = $(`<div id="html_2f45896cfc995d469920d4e48418ab3e" style="width: 100.0%; height: 100.0%;">Edificio Movisol</div>`)[0];
+                popup_0c54b58234717fe3baa4d067ab531f0e.setContent(html_2f45896cfc995d469920d4e48418ab3e);
+            
+        
+
+        marker_06b859eaa3f80669e15412f7130df7ed.bindPopup(popup_0c54b58234717fe3baa4d067ab531f0e)
+        ;
+
+        
+    
+    
+            var marker_a4a25f661672f09befd660bd6c9e844e = L.marker(
+                [10.420857, -75.539092],
+                {
+}
+            ).addTo(map_90b566dac7a7a1528635cacb4583abf7);
+        
+    
+        var popup_684c6982e0c2bc13f98909636a2dafab = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6c75d27ca897d25d81654e57146e0db2 = $(`<div id="html_6c75d27ca897d25d81654e57146e0db2" style="width: 100.0%; height: 100.0%;">Centro Comercial Portal San Felipe</div>`)[0];
+                popup_684c6982e0c2bc13f98909636a2dafab.setContent(html_6c75d27ca897d25d81654e57146e0db2);
+            
+        
+
+        marker_a4a25f661672f09befd660bd6c9e844e.bindPopup(popup_684c6982e0c2bc13f98909636a2dafab)
+        ;
+
+        
+    
+    
+            var marker_cd41db96eb5afcd7dcad3107da7cff54 = L.marker(
+                [10.42082, -75.53722],
+                {
+}
+            ).addTo(map_90b566dac7a7a1528635cacb4583abf7);
+        
+    
+        var popup_6a911fe55922939b2a14065d758d7d09 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c58e088ae71d0dcc51f5d272b4e886b5 = $(`<div id="html_c58e088ae71d0dcc51f5d272b4e886b5" style="width: 100.0%; height: 100.0%;">Edificio Sura Pie del Cerro</div>`)[0];
+                popup_6a911fe55922939b2a14065d758d7d09.setContent(html_c58e088ae71d0dcc51f5d272b4e886b5);
+            
+        
+
+        marker_cd41db96eb5afcd7dcad3107da7cff54.bindPopup(popup_6a911fe55922939b2a14065d758d7d09)
+        ;
+
+        
+    
+    
+            var marker_6f29e870391f73634be2fb90be46d4f6 = L.marker(
+                [10.409665, -75.532511],
+                {
+}
+            ).addTo(map_90b566dac7a7a1528635cacb4583abf7);
+        
+    
+        var popup_71400f32dc2a32bd30a4c2047ad68ba1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3f04940ad8ffeab18dbbb72f28665ce9 = $(`<div id="html_3f04940ad8ffeab18dbbb72f28665ce9" style="width: 100.0%; height: 100.0%;">Torre del Puerto</div>`)[0];
+                popup_71400f32dc2a32bd30a4c2047ad68ba1.setContent(html_3f04940ad8ffeab18dbbb72f28665ce9);
+            
+        
+
+        marker_6f29e870391f73634be2fb90be46d4f6.bindPopup(popup_71400f32dc2a32bd30a4c2047ad68ba1)
+        ;
+
+        
+    
+    
+            var marker_b3b189ea3582f011a15990f44dfff385 = L.marker(
+                [10.391373, -75.487046],
+                {
+}
+            ).addTo(map_90b566dac7a7a1528635cacb4583abf7);
+        
+    
+        var popup_66debb3b9e75c198f0248b219820f1fa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_781d2c58fb9e923a57e06d5fdff01410 = $(`<div id="html_781d2c58fb9e923a57e06d5fdff01410" style="width: 100.0%; height: 100.0%;">Edificio Movisol</div>`)[0];
+                popup_66debb3b9e75c198f0248b219820f1fa.setContent(html_781d2c58fb9e923a57e06d5fdff01410);
+            
+        
+
+        marker_b3b189ea3582f011a15990f44dfff385.bindPopup(popup_66debb3b9e75c198f0248b219820f1fa)
+        ;
+
+        
+    
+    
+            var marker_f567d97859eceb60442fd0ef6f9947a9 = L.marker(
+                [10.390671, -75.479831],
+                {
+}
+            ).addTo(map_90b566dac7a7a1528635cacb4583abf7);
+        
+    
+        var popup_26dbd2f1a076d93bdb8ed8d4abeca2e4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b995cad5e670481dddfcfda8f632bf8c = $(`<div id="html_b995cad5e670481dddfcfda8f632bf8c" style="width: 100.0%; height: 100.0%;">Centro Comercial La Plazuela Shopping Center</div>`)[0];
+                popup_26dbd2f1a076d93bdb8ed8d4abeca2e4.setContent(html_b995cad5e670481dddfcfda8f632bf8c);
+            
+        
+
+        marker_f567d97859eceb60442fd0ef6f9947a9.bindPopup(popup_26dbd2f1a076d93bdb8ed8d4abeca2e4)
+        ;
+
+        
+    
+    
+            var marker_4bf9d033149a9aabcf20ed9943acf72e = L.marker(
+                [10.49182, -75.47461],
+                {
+}
+            ).addTo(map_90b566dac7a7a1528635cacb4583abf7);
+        
+    
+        var popup_11ffc4c1999d89c6f3bd03c3db22697a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_36a029ef321e415410b1682e75eab698 = $(`<div id="html_36a029ef321e415410b1682e75eab698" style="width: 100.0%; height: 100.0%;">Serena del Mar</div>`)[0];
+                popup_11ffc4c1999d89c6f3bd03c3db22697a.setContent(html_36a029ef321e415410b1682e75eab698);
+            
+        
+
+        marker_4bf9d033149a9aabcf20ed9943acf72e.bindPopup(popup_11ffc4c1999d89c6f3bd03c3db22697a)
+        ;
+
+        
+    
+</script>
+</html>
