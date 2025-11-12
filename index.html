@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            font-size: 6em;
+            margin-top: 50px;
+            color: #333;
+            background-color: #007BFF;
+            color: white;
+        }
+        h2 {
+            font-size: 3em;
+            margin-top: 50px;
+            color: #333;
+            background-color: #007BFF;
+            color: white;
+        }
+        .button-container {
+            margin-top: 80px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        .btn {
+            font-size: 1.5em;
+            padding: 20px 40px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mapas de Calor</h1>
+    <h2>Regional Norte</h2>
+            <div style="position: absolute; bottom: 160px; right:35%; transform: translateX(-50%); z-index: 1000;">
+                <button onclick="window.open('MapaCalorBAQ.html', '_blank')" class="btn btn-primary">
+                    Barranquilla
+                </button>
+            </div>
+            <div style="position: absolute; bottom: 160px; right:60%; transform: translateX(-50%); z-index: 1000;">
+                <button onclick="window.open('MapaCalorCTGA.html', '_blank')" class="btn btn-primary">
+                    Cartagena
+                </button>
+            </div>
+            <div style="position: absolute; bottom: 160px; right:10%; transform: translateX(-50%); z-index: 1000;">
+                <button onclick="window.open('MapaCalorBUC.html', '_blank')" class="btn btn-primary">
+                    Bucaramanga
+                </button>
+            </div>
+
+</html>
